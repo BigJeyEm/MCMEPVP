@@ -1,9 +1,10 @@
 package co.mcme.pvp.listeners;
 
+import co.mcme.pvp.MCMEPVP;
+import co.mcme.pvp.util.teamUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -22,11 +23,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.vehicle.VehicleExitEvent;
 import org.bukkit.inventory.ItemStack;
-
-import co.mcme.pvp.MCMEPVP;
-import co.mcme.pvp.util.teamUtil;
+import org.spigotmc.event.entity.EntityDismountEvent;
 
 public class horseListener implements Listener{
 	
@@ -131,8 +129,8 @@ public class horseListener implements Listener{
 	} 
 	
 	@EventHandler(priority = EventPriority.HIGH)
-	public void horseDismount(VehicleExitEvent event){
-		event.getVehicle().remove();
+	public void horseDismount(EntityDismountEvent event){
+            event.getDismounted().remove();
 	}
 	
 	public Variant randomVariant(){
